@@ -1,0 +1,23 @@
+# Image Reshaping Assignment
+
+# Mohsin Ahmed
+
+# AIC-035346
+
+# SAIMS - 1:15 to 5:15
+
+import glob
+import numpy as np
+from PIL import Image
+import cv2
+
+z = np.zeros((20, 200, 200, 3))
+filelist = glob.glob('Images/*')
+print(filelist)
+for i in filelist:
+    x = np.array(Image.open(i))
+    y = cv2.resize(x, (200, 200))
+    other_dim = y[np.newaxis,:]
+    final_array = z + other_dim
+print(other_dim.shape)
+print(final_array.shape)
